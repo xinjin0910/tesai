@@ -12,7 +12,7 @@ const seriesData = {
    "ecf": {
         title: "ECF1系列 1700°C 箱式电阻炉",
         description: "采用优质硅钼棒为加热元件，最高温度1700°C。双层壳体结构，表面温度低，升温速度快，是高校、科研院所、工矿企业做高温烧结、金属退火、质量检测的理想设备。",
-        image: "https://placehold.co/800x400/e2e8f0/0F3A66?text=ECF1+Series+Banner", // 记得替换为ECF的系列图
+        image: "pics/ecf.png", // 记得替换为ECF的系列图
         // 这里列出了我们提取的三个代表性型号
         models: ["ecf-1-4-17", "ecf-1-6.4-17", "ecf-1-8-17"] 
     },
