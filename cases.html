@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>技术案例 - 特赛高温技术</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { tesai: { blue: '#0F3A66', orange: '#D65A18', light: '#F3F4F6' } }
+                }
+            }
+        }
+    </script>
+    <script src="js/data.js"></script>
+    <style>
+        .nav-container { height: 110px; }
+        .line-clamp-3 { overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans pt-[110px]">
+    <script src="js/layout.js"></script>
+    <script>renderNavbar('cases');</script> <div class="bg-tesai-blue text-white py-16 text-center">
+        <h1 class="text-4xl font-bold mb-4">技术应用案例</h1>
+        <p class="text-xl text-gray-300 max-w-2xl mx-auto">探索特赛高温设备在科研与工业一线的实际应用成果</p>
+    </div>
+
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div id="cases-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                </div>
+        </div>
+    </section>
+
+    <div id="case-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto relative">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-500 hover:text-tesai-orange">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <div class="p-8">
+                <img id="m-image" src="" class="w-full h-64 object-cover rounded-lg mb-6">
+                <h2 id="m-title" class="text-2xl font-bold text-tesai-blue mb-2"></h2>
+                <p id="m-date" class="text-sm text-gray-400 mb-6"></p>
+                <div id="m-content" class="prose max-w-none text-gray-600 leading-relaxed"></div>
+                
+                <div class="mt-8 pt-6 border-t border-gray-100">
+                    <p class="text-sm text-gray-500 mb-2">相关设备：</p>
+                    <a id="m-link" href="#" class="text-tesai-orange font-semibold hover:underline">查看设备详情 &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>renderFooter();</script>
+
+    <script>
+        // 渲染列表
+        const grid = document.getElementById('cases-grid');
+        casesData.forEach(item => {
+            const card = document.createElement('div');
+            card.className = "bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-md transition duration-300 flex flex-col";
+            card.innerHTML = `
+                <div class="h-48 overflow-hidden">
+                    <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                </div>
+                <div class="p-6 flex-1 flex flex-col">
+                    <div class="text-xs text-gray-400 mb-2">${item.date}</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">${item.title}</h3>
+                    <p class="text-gray-500 text-sm mb-4 line-clamp-3 flex-1">${item.summary}</p>
+                    <button onclick="openCase('${item.id}')" class="text-tesai-blue font-semibold text-sm hover:text-tesai-orange transition mt-auto text-left">
+                        阅读完整案例 &rarr;
+                    </button>
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+
+        // 弹窗逻辑
+        function openCase(id) {
+            const data = casesData.find(c => c.id === id);
+            if(!data) return;
+
+            document.getElementById('m-image').src = data.image;
+            document.getElementById('m-title').textContent = data.title;
+            document.getElementById('m-date').textContent = data.date;
+            document.getElementById('m-content').innerHTML = data.content;
+            
+            const linkBtn = document.getElementById('m-link');
+            if(data.relatedModel) {
+                linkBtn.href = `product.html?id=${data.relatedModel}`;
+                linkBtn.style.display = 'inline-block';
+            } else {
+                linkBtn.style.display = 'none';
+            }
+
+            document.getElementById('case-modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // 禁止背景滚动
+        }
+
+        function closeModal() {
+            document.getElementById('case-modal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+    </script>
+</body>
+</html>

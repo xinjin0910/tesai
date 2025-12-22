@@ -259,4 +259,30 @@ const productData = {
         ],
         applications: ["批量陶瓷烧结", "大型玻璃熔炼", "建材行业生产"]
     },
+    // ... (保留原有的 seriesData 和 productData) ...
 };
+    // 3. 技术案例数据 (新加的)
+    const casesData = [
+    {
+        id: "case-01",
+        title: "某高校实验室：高纯氧化铝陶瓷的致密化烧结",
+        summary: "通过使用 HPS-50-12 热压炉，解决了传统常压烧结中样品致密度不足的问题，相对密度提升至99.5%。",
+        image: "https://placehold.co/600x400/e2e8f0/0F3A66?text=Case+Study+1",
+        date: "2023-10-15",
+        relatedModel: "hps-50-12", // 关联的产品ID
+        content: `
+            <p><strong>项目背景：</strong>该课题组在研发新型高纯氧化铝陶瓷材料时，发现使用普通马弗炉烧结难以消除内部气孔...</p>
+            <p><strong>解决方案：</strong>采用特赛 HPS-50-12 热压烧结炉，在 1400°C 下施加 30MPa 压力...</p>
+            <p><strong>实验结果：</strong>样品晶粒生长均匀，未出现异常长大，断裂韧性显著提高。</p>
+        `
+    },
+    {
+        id: "case-02",
+        title: "半导体行业：碳化硅晶体的退火处理工艺",
+        summary: "利用 ECF 系列高温炉精确的温控系统，实现了晶圆片的大批量、高均匀性退火。",
+        image: "https://placehold.co/600x400/e2e8f0/0F3A66?text=Case+Study+2",
+        date: "2024-01-20",
+        relatedModel: "ecf-1-8-17",
+        content: "<p>此处填写详细案例内容...</p>"
+    }
+    ]

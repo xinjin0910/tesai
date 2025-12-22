@@ -31,7 +31,7 @@ function renderNavbar(activePage) {
                     
                     <a href="index.html#products" class="text-lg transition ${prodStyle}">产品中心</a>
                     
-                    <a href="#" class="text-lg transition ${caseStyle}">技术案例</a>
+                    <a href="cases.html" class="text-lg transition ${caseStyle}">技术案例</a>
                     
                     <a href="index.html#about" class="text-lg transition ${aboutStyle}">关于我们</a>
                     
