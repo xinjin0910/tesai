@@ -284,5 +284,27 @@ const productData = {
         date: "2024-01-20",
         relatedModel: "ecf-1-8-17",
         content: "<p>此处填写详细案例内容...</p>"
+    },
+    {
+        id: "case-03",
+        title: "玻璃拉板及退火生产线项目",
+        summary: "本项目展示了高性能玻璃基板的生产布局，重点集成了高温控制与精密退火工艺。",
+        image: "pics/glass.png", 
+        date: "2024-03-15",
+        relatedModel: "gmt-16-17", // 关联了适合玻璃熔炼的GMT系列，您也可以根据需要修改
+        content: `
+            <p class="mb-4">
+                <strong>🔥 加热系统：</strong><br>
+                采用 <strong>硅钼棒 (MoSi₂)</strong> 加热元件。该元件具有耐高温、抗氧化的特性，能够保证玻璃在熔融或拉拔过程中温度场的极高稳定性。
+            </p>
+            <p class="mb-4">
+                <strong>🌀 退火工艺：</strong><br>
+                后端配套使用 <strong>网带式退火炉</strong>。该设备自带退火功能，通过精确控制降温曲线，有效消除玻璃板内部应力，确保成品强度与平整度。
+            </p>
+            <p>
+                <strong>⚙️ 控制系统：</strong><br>
+                配置多功能中央控制柜，实现对硅钼棒功率的精密调控以及网带传输速度的同步化管理。
+            </p>
+        `
     }
     ]
